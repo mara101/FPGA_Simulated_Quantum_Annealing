@@ -19,7 +19,6 @@ from sqa_solver import (
     jperp,
     MAX_NTROT,
     MAX_NSPIN,
-    _REG_SEED,
 )
 
 
@@ -341,7 +340,11 @@ class TestSQASimulatorOptimality:
 # ===========================================================================
 
 class _MockIP:
-    """Minimal AXI-Lite IP core mock."""
+    """Minimal AXI-Lite IP core mock.
+
+    Simulates the kernel done-handshake: writing 0x01 to AP_CTRL sets the
+    'kernel-completed' flag so the host's polling loop exits immediately.
+    """
     def __init__(self):
         self.regs: dict = {}
         self._done = False
@@ -353,43 +356,44 @@ class _MockIP:
 
     def read(self, addr):
         if addr == 0x0000:
-            return 0x04 if self._done else 0x00
+            # bit 1 = ap_done, bit 2 = ap_idle. Both set after our fake kernel run.
+            return 0x06 if self._done else 0x00
         return self.regs.get(addr, 0)
 
 
-class _MockDMAChannel:
-    def __init__(self):
-        self.last_transfer: np.ndarray = np.array([], dtype=np.float32)
+class _MockJBuf:
+    """Stand-in for a pynq.allocate buffer.
 
-    def transfer(self, buf):
-        self.last_transfer = np.array(buf, dtype=np.float32)
+    Backed by a regular numpy array with a fake physical_address attribute
+    so the solver can write it to the JCOUP registers.
+    """
+    def __init__(self, size: int = MAX_NSPIN * MAX_NSPIN, phys: int = 0x10000000):
+        self._arr = np.zeros(size, dtype=np.float32)
+        self.physical_address = phys
 
-    def wait(self): pass
-
-
-class _MockDMA:
-    def __init__(self):
-        self.sendchannel = _MockDMAChannel()
-
+    def __setitem__(self, idx, value): self._arr[idx] = value
+    def __getitem__(self, idx):        return self._arr[idx]
+    @property
+    def size(self):                    return self._arr.size
+    def freebuffer(self):              pass
 
 
 class TestSQASolverInterface:
     """Verify the FPGA solver writes the right registers without requiring PYNQ."""
 
-    def _make_solver(self, Q, n_trot=4):
+    def _make_solver(self, n_trot=4):
         """Instantiate SQASolver with mocked PYNQ internals."""
-        from sqa_solver import SQASolver, _REG_NTROT, _REG_NSPIN, _REG_JPERP, _REG_BETA
-
+        from sqa_solver import SQASolver
         solver = object.__new__(SQASolver)
         solver.num_trotters = n_trot
         solver._ip = _MockIP()
-        solver._dma = _MockDMA()
+        solver._J_buf = _MockJBuf()
         return solver
 
     def test_ntrot_written_correctly(self):
         from sqa_solver import _REG_NTROT
         Q = np.eye(4, dtype=np.float32)
-        solver = self._make_solver(Q, n_trot=4)
+        solver = self._make_solver(n_trot=4)
         solver.solve(Q, iters=1)
         assert solver._ip.regs.get(_REG_NTROT) == 4
 
@@ -397,66 +401,93 @@ class TestSQASolverInterface:
         from sqa_solver import _REG_NSPIN
         n = 6
         Q = np.eye(n, dtype=np.float32)
-        solver = self._make_solver(Q, n_trot=2)
+        solver = self._make_solver(n_trot=2)
         solver.solve(Q, iters=1)
         assert solver._ip.regs.get(_REG_NSPIN) == n
 
-    def test_jperp_register_written(self):
-        from sqa_solver import _REG_JPERP
+    def test_total_iters_written_correctly(self):
+        # iters is the global anneal length, written to TOTAL_ITERS.
+        from sqa_solver import _REG_TOTAL_ITERS
         Q = np.eye(4, dtype=np.float32)
-        solver = self._make_solver(Q)
-        solver.solve(Q, iters=1)
-        assert _REG_JPERP in solver._ip.regs
+        solver = self._make_solver()
+        solver.solve(Q, iters=137)
+        assert solver._ip.regs.get(_REG_TOTAL_ITERS) == 137
 
-    def test_beta_register_written(self):
-        from sqa_solver import _REG_BETA
+    def test_chunking_covers_full_anneal(self):
+        # The sum of chunk sizes (ITER_START progression) must cover all iters.
+        from sqa_solver import _REG_ITER_START, _REG_NITER
         Q = np.eye(4, dtype=np.float32)
-        solver = self._make_solver(Q)
+        solver = self._make_solver()
+        solver.solve(Q, iters=100, snapshots=10)
+        # Last chunk's start + size should reach iters.
+        last_start = solver._ip.regs.get(_REG_ITER_START)
+        last_size  = solver._ip.regs.get(_REG_NITER)
+        assert last_start + last_size == 100
+
+    def test_schedule_registers_written(self):
+        # Option B writes beta_start / beta_end / gamma_start instead of
+        # per-iter beta/jperp.
+        from sqa_solver import _REG_BETA_START, _REG_BETA_END, _REG_GAMMA_START
+        Q = np.eye(4, dtype=np.float32)
+        solver = self._make_solver()
+        solver.solve(Q, iters=1, beta_start=0.001, beta_end=8.0, gamma_start=4.0)
+        assert _REG_BETA_START  in solver._ip.regs
+        assert _REG_BETA_END    in solver._ip.regs
+        assert _REG_GAMMA_START in solver._ip.regs
+
+    def test_jcoup_physical_address_written(self):
+        # The kernel reads J via AXI master, so the host must write the
+        # buffer's DDR physical address split across two 32-bit regs.
+        from sqa_solver import _REG_JCOUP_LO, _REG_JCOUP_HI
+        Q = np.eye(4, dtype=np.float32)
+        solver = self._make_solver()
+        phys = solver._J_buf.physical_address
         solver.solve(Q, iters=1)
-        assert _REG_BETA in solver._ip.regs
+        assert solver._ip.regs.get(_REG_JCOUP_LO) == (phys & 0xFFFFFFFF)
+        assert solver._ip.regs.get(_REG_JCOUP_HI) == ((phys >> 32) & 0xFFFFFFFF)
 
     def test_trotters_region_written(self):
         from sqa_solver import _REG_TROT_BASE, _REG_TROT_END
         Q = np.eye(4, dtype=np.float32)
-        solver = self._make_solver(Q)
+        solver = self._make_solver()
         solver.solve(Q, iters=1)
-        # At least some trotter registers must have been written
         trot_writes = [a for a in solver._ip.regs if _REG_TROT_BASE <= a < _REG_TROT_END]
         assert len(trot_writes) > 0
 
-    def test_dma_buffer_matches_J_kernel(self):
-        # Verify the DMA buffer has n-stride layout and contains exactly n² values
+    def test_J_buffer_matches_J_kernel(self):
+        # The first n*n entries of the J buffer must be exactly J_k (row-major).
         n = 3
         Q = np.array([[0., -1., 0.5],
                       [-1., 0., -0.5],
                       [0.5, -0.5, 0.]], dtype=np.float32)
-        solver = self._make_solver(Q)
+        solver = self._make_solver()
         solver.solve(Q, iters=1)
         from sqa_solver import qubo_to_kernel
         J_k, _ = qubo_to_kernel(Q)
-        buf = solver._dma.sendchannel.last_transfer
-        assert buf.size == n * n, f"Expected {n*n} values, got {buf.size}"
+        buf = np.asarray(solver._J_buf[:n*n])
         for i in range(n):
             row = buf[i * n : i * n + n]
             np.testing.assert_allclose(row, J_k[i], atol=1e-6)
 
-    def test_seed_register_written_and_varies(self):
-        # Each iteration must write a different seed so the kernel PRNG is not stuck.
+    def test_seed_register_written_and_nonzero(self):
+        # Kernel needs a non-zero seed; host writes it once per restart.
+        from sqa_solver import _REG_SEED_IN
         Q = np.eye(4, dtype=np.float32)
-        solver = self._make_solver(Q)
-        solver.solve(Q, iters=3)
-        seeds = [solver._ip.regs.get(_REG_SEED + i * 4, None) for i in range(3)
-                 if solver._ip.regs.get(_REG_SEED) is not None]
-        # At minimum, the register must have been written at least once.
-        assert _REG_SEED in solver._ip.regs
-        assert solver._ip.regs[_REG_SEED] != 0
+        solver = self._make_solver()
+        solver.solve(Q, iters=1, seed=12345)
+        assert _REG_SEED_IN in solver._ip.regs
+        assert solver._ip.regs[_REG_SEED_IN] != 0
+
+    def test_ap_start_written(self):
+        # The solve() must trigger the kernel via the ap_start bit.
+        from sqa_solver import _REG_AP_CTRL
+        Q = np.eye(4, dtype=np.float32)
+        solver = self._make_solver()
+        solver.solve(Q, iters=1)
+        assert solver._ip.regs.get(_REG_AP_CTRL, 0) & 0x01
 
     def test_oversized_problem_raises(self):
-        from sqa_solver import SQASolver
-        solver = object.__new__(SQASolver)
-        solver.num_trotters = 4
-        solver._ip = _MockIP()
-        solver._dma = _MockDMA()
         Q = np.eye(MAX_NSPIN + 1, dtype=np.float32)
+        solver = self._make_solver()
         with pytest.raises(ValueError, match="MAX_NSPIN"):
             solver.solve(Q, iters=1)

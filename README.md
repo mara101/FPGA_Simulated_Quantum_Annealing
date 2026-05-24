@@ -10,9 +10,13 @@ and trimmed down to a single kernel variant (Opt5) plus host code.
 ```python
 from sqa_solver import SQASolver
 solver = SQASolver("/home/xilinx/SQA_Opt5.bit")
-result = solver.solve(Q, iters=200, restarts=3)
+result = solver.solve(Q, iters=1000, restarts=3)
 print(result.best_sample, result.best_energy)
 ```
+
+The kernel runs the full annealing schedule (β, γ, Jperp) internally — the
+host makes one kernel call per restart and reads back the final trotter states.
+Large iter counts are cheap; 1000–10000 is typical.
 
 `Q` is any QUBO matrix (n × n, n ≤ 1024). The solver minimises `E(x) = xᵀ Q x` over
 `x ∈ {0,1}ⁿ` and returns the best sample found across all 8 trotters and restarts.
@@ -53,7 +57,8 @@ Build flow:
 2. Extract IP, then `vivado -mode batch -source create_vivado_project.tcl` → `.bit` + `.hwh`
 3. Copy outputs into `impl_result/_hw/Opt5/`.
 
-Resources: ~131 DSPs, ~21 k FF, ~50 k LUT on xc7z020 (fits in the PYNQ-Z2 device).
+Resources (Option B build, post-impl): 154 DSP / 220, 20 945 LUT / 53 200,
+20 138 FF / 106 400, 36 BRAM / 140.
 
 ## Algorithm
 
@@ -73,7 +78,7 @@ PRNG is per-trotter xorshift32 (golden-ratio seed spread); see `src/include/prng
 ## Roadmap
 
 See [ROADMAP.md](ROADMAP.md) for outstanding improvements (parallel tempering,
-DMA double buffering, fixed-point accumulation, problem-size tiling, etc.).
+fixed-point accumulation, problem-size tiling, etc.).
 
 ## License
 

@@ -81,17 +81,28 @@ update. Also wired up the previously unused `startStep/endStep/ctlStep` paramete
 
 ---
 
-## 4. DMA Double Buffering `[ ]`
+## 4. Internal iteration loop + AXI master J (Option B) `[x]`
 
-**File:** `src/host/sqa_solver.py` (host-side, no kernel changes)
+**Files:** `src/kernel_opt5/qmc_opt5.cpp`, `src/host/sqa_solver.py`,
+`C:\SQA\create_vivado_project.tcl`
 
-Allocate two ping-pong DMA buffers. While the kernel processes buffer A, the host
-pre-loads buffer B. Swap on the kernel-done interrupt.
+Moved the entire annealing loop *inside* the HLS kernel. The host now makes
+one kernel call per `solve()` (per restart) and the kernel runs all `iters`
+sweeps internally, computing the β/γ/Jperp schedule via `tanhf`/`logf` once
+per iter. J is read from DDR via an AXI master port (no DMA), so the only
+per-iter host work is gone. Split the kernel into a DATAFLOW producer
+(`read_J_stream`, m_axi → hls::stream) and consumer (`sqa_compute`,
+hls::stream → SQA), matching the LUT footprint of the original streamed
+design. NPC reduced 16 → 8 to fit on xc7z020 (47 487 / 53 200 LUT post-HLS;
+20 945 LUT post-impl). Block diagram simplified: DMA removed, kernel's
+`m_axi_gmem` wired directly to PS HP0 via `axi_mem_intercon`.
 
-**Why:** Each annealing iteration currently serialises: start kernel → DMA transfer → wait.
-Double buffering removes the DMA latency from the critical path entirely.
+**Why:** Each annealing iteration was previously a host→FPGA round-trip:
+~125 ms of Python + AXI-Lite + DMA setup overhead for ~0.7 ms of actual
+kernel compute. Eliminating that loop is the only way to actually beat a
+modern desktop CPU on PYNQ-Z2 hardware.
 
-**Effort:** Medium | **Impact on throughput:** Medium–High
+**Effort:** High | **Impact on throughput:** Very High (expected ~12× over previous build)
 
 ---
 

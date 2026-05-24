@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 14 22:47:30 2026" VIVADOVERSION="2025.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 21 18:12:43 2026" VIVADOVERSION="2025.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -159,7 +159,7 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE COREREVISION="2114609021" FULLNAME="/QuantumMonteCarloOpt5_0" HWVERSION="1.0" INSTANCE="QuantumMonteCarloOpt5_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="QuantumMonteCarloOpt5" VLNV="xilinx.com:hls:QuantumMonteCarloOpt5:1.0">
+    <MODULE COREREVISION="2114618818" FULLNAME="/QuantumMonteCarloOpt5_0" HWVERSION="1.0" INSTANCE="QuantumMonteCarloOpt5_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="QuantumMonteCarloOpt5" VLNV="xilinx.com:hls:QuantumMonteCarloOpt5:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="read-write" INTERFACE="s_axi_control" NAME="Reg" RANGE="65536" USAGE="register">
@@ -414,16 +414,16 @@
                 </FIELD>
               </FIELDS>
             </REGISTER>
-            <REGISTER NAME="Jperp">
-              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of Jperp"/>
+            <REGISTER NAME="nIter">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of nIter"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="32"/>
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="write-only"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0"/>
               <FIELDS>
-                <FIELD NAME="Jperp">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of Jperp"/>
+                <FIELD NAME="nIter">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of nIter"/>
                   <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
                   <PROPERTY NAME="ACCESS" VALUE="write-only"/>
                   <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
@@ -434,16 +434,136 @@
                 </FIELD>
               </FIELDS>
             </REGISTER>
-            <REGISTER NAME="Beta">
-              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of Beta"/>
+            <REGISTER NAME="iter_start">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of iter_start"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="40"/>
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="write-only"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0"/>
               <FIELDS>
-                <FIELD NAME="Beta">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of Beta"/>
+                <FIELD NAME="iter_start">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of iter_start"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="total_iters">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of total_iters"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="48"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0"/>
+              <FIELDS>
+                <FIELD NAME="total_iters">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of total_iters"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="Jcoup_1">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of Jcoup"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="56"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0"/>
+              <FIELDS>
+                <FIELD NAME="Jcoup">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of Jcoup"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="Jcoup_2">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of Jcoup"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="60"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0"/>
+              <FIELDS>
+                <FIELD NAME="Jcoup">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 63 to 32 of Jcoup"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="beta_start">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of beta_start"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="68"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0"/>
+              <FIELDS>
+                <FIELD NAME="beta_start">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of beta_start"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="beta_end">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of beta_end"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="76"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0"/>
+              <FIELDS>
+                <FIELD NAME="beta_end">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of beta_end"/>
+                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
+                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
+                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
+                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
+                </FIELD>
+              </FIELDS>
+            </REGISTER>
+            <REGISTER NAME="gamma_start">
+              <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of gamma_start"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="84"/>
+              <PROPERTY NAME="SIZE" VALUE="32"/>
+              <PROPERTY NAME="ACCESS" VALUE="write-only"/>
+              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
+              <PROPERTY NAME="RESET_VALUE" VALUE="0"/>
+              <FIELDS>
+                <FIELD NAME="gamma_start">
+                  <PROPERTY NAME="DESCRIPTION" VALUE="Bit 31 to 0 of gamma_start"/>
                   <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
                   <PROPERTY NAME="ACCESS" VALUE="write-only"/>
                   <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
@@ -456,7 +576,7 @@
             </REGISTER>
             <REGISTER NAME="seed_in">
               <PROPERTY NAME="DESCRIPTION" VALUE="Data signal of seed_in"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="48"/>
+              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="92"/>
               <PROPERTY NAME="SIZE" VALUE="32"/>
               <PROPERTY NAME="ACCESS" VALUE="write-only"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
@@ -606,34 +726,32 @@
         </ADDRESSBLOCK>
       </ADDRESSBLOCKS>
       <PARAMETERS>
+        <PARAMETER NAME="C_M_AXI_GMEM_ADDR_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_ARUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_AWUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_BUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_CACHE_VALUE" VALUE="&quot;0011&quot;"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_DATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_ID_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_PROT_VALUE" VALUE="&quot;000&quot;"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_RUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_USER_VALUE" VALUE="0x00000000"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_WUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_S_AXI_CONTROL_ADDR_WIDTH" VALUE="14"/>
         <PARAMETER NAME="C_S_AXI_CONTROL_DATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_ENABLE_ID_PORTS" VALUE="true"/>
+        <PARAMETER NAME="C_M_AXI_GMEM_ENABLE_USER_PORTS" VALUE="false"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_QuantumMonteCarloOpt5_0_0"/>
-        <PARAMETER NAME="II" VALUE="12 ~ 2369250"/>
+        <PARAMETER NAME="II" VALUE="17 ~ 13755210052"/>
         <PARAMETER NAME="clk_period" VALUE="10"/>
         <PARAMETER NAME="combinational" VALUE="0"/>
-        <PARAMETER NAME="latency" VALUE="11"/>
+        <PARAMETER NAME="latency" VALUE="16"/>
         <PARAMETER NAME="machine" VALUE="64"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S_AXI_CONTROL_BASEADDR" VALUE="0x40000000"/>
         <PARAMETER NAME="C_S_AXI_CONTROL_HIGHADDR" VALUE="0x4000FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="31" NAME="Jcoup_TDATA" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_Jcoup_TDATA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="Jcoup_TREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_Jcoup_TREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="Jcoup_TVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_Jcoup_TVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tvalid"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ap_clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
@@ -645,94 +763,274 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="interrupt" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
+        <PORT DIR="O" LEFT="63" NAME="m_axi_gmem_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARADDR">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_araddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_ARBURST" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARBURST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arburst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_ARCACHE" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARCACHE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arcache"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="m_axi_gmem_ARID" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="m_axi_gmem_ARLEN" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARLEN">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arlen"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_ARLOCK" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARLOCK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arlock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_ARPROT" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARPROT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_ARQOS" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARQOS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arqos"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axi_gmem_ARREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_ARREGION" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARREGION">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arregion"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_ARSIZE" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARSIZE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arsize"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axi_gmem_ARVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="63" NAME="m_axi_gmem_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWADDR">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awaddr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_AWBURST" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWBURST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awburst"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_AWCACHE" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWCACHE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awcache"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="m_axi_gmem_AWLEN" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWLEN">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awlen"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="m_axi_gmem_AWLOCK" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWLOCK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awlock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_AWPROT" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWPROT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awprot"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_AWQOS" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWQOS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awqos"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axi_gmem_AWREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="2" NAME="m_axi_gmem_AWSIZE" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWSIZE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awsize"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axi_gmem_AWVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axi_gmem_BREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_BREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_bready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="m_axi_gmem_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_BRESP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_bresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axi_gmem_BVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_BVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_bvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="m_axi_gmem_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="m_axi_gmem_RID" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axi_gmem_RLAST" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RLAST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axi_gmem_RREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="m_axi_gmem_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RRESP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rresp"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axi_gmem_RVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="m_axi_gmem_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axi_gmem_WLAST" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WLAST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_wlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axi_gmem_WREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_wready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="m_axi_gmem_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WSTRB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_wstrb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axi_gmem_WVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="13" NAME="s_axi_control_ARADDR" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_araddr"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_control_ARREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_arready"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_arready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_control_ARVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_arvalid"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="13" NAME="s_axi_control_AWADDR" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_awaddr"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_control_AWREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_awready"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_control_AWVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_awvalid"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_control_BREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_bready"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="s_axi_control_BRESP" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_bresp"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bresp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_control_BVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_bvalid"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="s_axi_control_RDATA" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_rdata"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_control_RREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_rready"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="s_axi_control_RRESP" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RRESP">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_rresp"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_control_RVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_rvalid"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="s_axi_control_WDATA" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WDATA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_wdata"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_control_WREADY" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_wready"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="3" NAME="s_axi_control_WSTRB" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WSTRB">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_wstrb"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_control_WVALID" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_AXI_wvalid"/>
+            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wvalid"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="ps7_0_axi_periph_M01_AXI" DATAWIDTH="32" NAME="s_axi_control" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="ps7_0_axi_periph_M00_AXI" DATAWIDTH="32" NAME="s_axi_control" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="ADDR_WIDTH" VALUE="14"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -753,9 +1051,9 @@
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
+          <PARAMETER NAME="NUM_READ_THREADS" VALUE="4"/>
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
+          <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="4"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
@@ -784,1093 +1082,8 @@
             <PORTMAP LOGICAL="WVALID" PHYSICAL="s_axi_control_WVALID"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXIS_MM2S" NAME="Jcoup" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
-          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
-          <PARAMETER NAME="PHASE" VALUE="0.0"/>
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="Jcoup_TDATA"/>
-            <PORTMAP LOGICAL="TREADY" PHYSICAL="Jcoup_TREADY"/>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="Jcoup_TVALID"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-      </BUSINTERFACES>
-    </MODULE>
-    <MODULE COREREVISION="37" FULLNAME="/axi_dma_0" HWVERSION="7.1" INSTANCE="axi_dma_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_dma" VLNV="xilinx.com:ip:axi_dma:7.1">
-      <DOCUMENTS>
-        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=axi_dma;v=v7_1;d=pg021_axi_dma.pdf"/>
-      </DOCUMENTS>
-      <ADDRESSBLOCKS>
-        <ADDRESSBLOCK ACCESS="read-write" INTERFACE="S_AXI_LITE" NAME="Reg" RANGE="4096" USAGE="register">
-          <REGISTERS>
-            <REGISTER NAME="MM2S_DMACR">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S DMA Control Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x0"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x10002"/>
-              <FIELDS>
-                <FIELD NAME="RS">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Run / Stop control for controlling running and stopping of the DMA channel.&#xA;  0 - Stop, DMA stops when current (if any) DMA operations are complete. For Scatter / Gather Mode pending commands/transfers are flushed or completed. &#xA;  AXI4-Stream outs are potentially terminated early. Descriptors in the update queue are allowed to finish updating to remote memory before engine halt.&#xA;  For Direct Register mode pending commands/transfers are flushed or completed. AXI4-Stream outs are potentially terminated.&#xA;  The halted bit in the DMA Status register asserts to 1 when the DMA engine is halted. This bit is cleared by AXI DMA hardware when an error occurs. The CPU can also choose to clear this bit to stop DMA operations.&#xA;  1 - Run, Start DMA operations. The halted bit in the DMA Status register deasserts to 0 when the DMA engine begins operations.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Reset">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Soft reset for resetting the AXI DMA core. Setting this bit to a 1 causes the AXI DMA to be reset. Reset is accomplished gracefully. Pending commands/transfers are flushed or completed.&#xA;AXI4-Stream outs are potentially terminated early. Setting either MM2S_DMACR. Reset = 1 or S2MM_DMACR.Reset = 1 resets the entire AXI DMA engine. After completion of a soft reset, all registers and bits are in the Reset State.      0 - Normal operation.   1 - Reset in progress.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="2"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Keyhole">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Keyhole Read. Setting this bit to 1 causes AXI DMA to initiate MM2S reads (AXI4read) in non-incrementing address mode (Fixed Address Burst transfer on AXI4). This bit can be updated when AXI DMA is in idle. When using keyhole operation the Max Burst Length should not exceed 16. This bit should not be set when DRE is enabled.&#xA;This bit is non functional when the multichannel feature is enabled or in Direct Register mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Cyclic_BD_Enable">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="When set to 1, the DMA operates in Cyclic Buffer Descriptor (BD) mode without any user intervention. In this mode, the Scatter Gather module ignores the Completed bit of the BD. With this bit set, you can use the same BDs in cyclic manner without worrying about any stale descriptor errors.&#xA;This bit should be set/unset only when the DMA is idle or when not running. Updating this bit while the DMA is running can result in unexpected behavior.&#xA;This bit is non functional when DMA operates in multichannel mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="4"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="IOC_IrqEn">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Complete (IOC) Interrupt Enable. When set to 1, allows DMASR.IOC_Irq to generate an interrupt out for descriptors with the IOC bit set.   0 - IOC Interrupt disabled      1 - IOC Interrupt enabled&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="12"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="12"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Dly_IrqEn">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Delay Timer Interrupt Enable. When set to 1, allows DMASR.Dly_Irq to generate an interrupt out.      0 - Delay Interrupt disabled   1 - Delay Interrupt enabled Note: This field is ignored when AXI DMA is configured for Direct Register Mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="13"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="13"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Err_IrqEn">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Error Interrupt Enable.&#xA;  0 - Error Interrupt disabled&#xA;  1 - Error Interrupt enabled&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="14"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="14"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="IRQThreshold">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Threshold. This value is used for setting the interrupt threshold. When IOC interrupt events occur, an internal counter counts down from the Interrupt Threshold setting. When the count reaches zero, an interrupt out is generated by the DMA engine.   Note: The minimum setting for the threshold is 0x01. A write of 0x00 to this register has no effect.   Note: This field is ignored when AXI DMA is configured for Direct Register Mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="16"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="16"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
-                </FIELD>
-                <FIELD NAME="IRQDelay">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Delay Time Out. This value is used for setting the interrupt timeout value. The interrupt timeout mechanism causes the DMA engine to generate an interrupt after the delay time period has expired. Timer begins counting at the end of a packet and resets with receipt of a new packet or a timeout event occurs.&#xA;Note: Setting this value to zero disables the delay timer interrupt.&#xA;Note: This field is ignored when AXI DMA is configured for Direct Register Mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="24"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="24"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="MM2S_DMASR">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S DMA Status Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x04"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x10000"/>
-              <FIELDS>
-                <FIELD NAME="Halted">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Channel Halted. Indicates the run/stop state of the DMA channel.      0 - DMA channel running.      1 - DMA channel halted.  For Scatter / Gather Mode this bit gets set when DMACR.RS = 0 and DMA and SG operations have halted. For Direct Register mode (C_INCLUDE_SG = 0) this bit gets set when DMACR.RS = 0 and DMA operations have halted. There can be a lag of time between when DMACR.RS = 0 and when DMASR.Halted = 1 Note: When halted (RS= 0 and Halted = 1), writing to CURDESC_PTR or TAILDESC_PTR pointer registers has no effect on DMA operations when in Scatter Gather Mode. For Direct Register Mode, writing to the LENGTH register has no effect on DMA operations.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Idle">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Channel Idle. Indicates the state of AXI DMA operations.&#xA;For Scatter / Gather Mode when IDLE indicates the SG Engine has reached the tail pointer for the associated channel and all queued descriptors have been processed. Writing to the tail pointer register automatically restarts DMA operations.&#xA;For Direct Register Mode when IDLE indicates the current transfer has completed.      0 - Not Idle. For Scatter / Gather Mode, SG has not reached tail descriptor pointer and/or DMA operations in progress. For Direct Register Mode, transfer is not complete.      1 - Idle. For Scatter / Gather Mode, SG has reached tail descriptor pointer and DMA operation paused. for Direct Register Mode, DMA transfer has completed and controller is paused.  Note: This bit is 0 when channel is halted (DMASR.Halted=1). This bit is also 0 prior to initial transfer when AXI DMA configured for Direct Register Mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="1"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="SGIncld">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="1 - Scatter Gather Enabled&#xA;0 - Scatter Gather not enabled&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="DMAIntErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Internal Error. Internal error occurs if the buffer length specified in the fetched descriptor is set to 0. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No DMA Internal Errors        1 - DMA Internal Error detected. DMA Engine halts&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="4"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="DMASlvErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Slave Error. This error occurs if the slave read from the Memory Map interface issues a Slave Error. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No DMA Slave Errors.      1 - DMA Slave Error detected. DMA Engine halts&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="5"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="5"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="DMADecErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Decode Error. This error occurs if the address request points to an invalid address. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No DMA Decode Errors.      1 - DMA Decode Error detected. DMA Engine halts.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="SGIntErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter Gather Internal Error. This error occurs if a descriptor with the &quot;Complete bit&quot; already set is fetched. Refer to the Scatter Gather Descriptor section for more information.This indicates to the SG Engine that the descriptor is a stale descriptor. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No SG Internal Errors.      1 - SG Internal Error detected. DMA Engine halts.  Note: This bit is not used and is fixed at 0 when AXI DMA is configured for Direct Register Mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="8"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="8"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="SGSlvErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter Gather Slave Error. This error occurs if the slave read from on the Memory Map interface issues a Slave error. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No SG Slave Errors.      1 - SG Slave Error detected. DMA Engine halts.  Note: This bit is not used and is fixed at 0 when AXI DMA is configured for Direct Register Mode. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="9"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="9"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="SGDecErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter Gather Decode Error. This error occurs if CURDESC_PTR and/or NXTDESC_PTR points to an invalid address. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No SG Decode Errors.      1 - SG Decode Error detected. DMA Engine halts.  Note: This bit is not used and is fixed at 0 when AXI DMA is configured for Direct Register Mode. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="10"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="10"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="IOC_Irq">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Complete. When set to 1 for Scatter/Gather Mode, indicates an interrupt event was generated on completion of a descriptor. This occurs for descriptors with the End of Frame (EOF) bit set. When set to 1 for Direct Register Mode, indicates an interrupt event was generated on completion of a transfer. If the corresponding bit is enabled in the MM2S_DMACR (IOC_IrqEn = 1) and if the interrupt threshold has been met, causes an interrupt out to be generated from the AXI DMA.      0 - No IOC Interrupt.      1 - IOC Interrupt detected.  Writing a 1 to this bit will clear it.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="12"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToClear"/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="12"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Dly_Irq">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Delay. When set to 1, indicates an interrupt event was generated on delay timer time out. If the corresponding bit is enabled in the MM2S_DMACR (Dly_IrqEn = 1), an interrupt out is generated from the AXI DMA.      0 - No Delay Interrupt.      1 - Delay Interrupt detected. Note: This bit is not used and is fixed at 0 when AXI DMA is configured for Direct Register Mode. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="13"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToClear"/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="13"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Err_Irq">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Error. When set to 1, indicates an interrupt event was generated on error. If the corresponding bit is enabled in the MM2S_DMACR (Err_IrqEn = 1), an interrupt out is generated from the AXI DMA.&#xA;Writing a 1 to this bit will clear it.   &#xA;0 - No error Interrupt.   &#xA;1 - Error interrupt detected.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="14"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToClear"/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="14"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="IRQThresholdSts">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Threshold Status. Indicates current interrupt threshold value.&#xA;Note: Applicable only when Scatter Gather is enabled.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="16"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="16"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
-                </FIELD>
-                <FIELD NAME="IRQDelaySts">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Delay Time Status. Indicates current interrupt delay time value.&#xA;Note: Applicable only when Scatter Gather is enabled.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="24"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="24"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="MM2S_CURDESC">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S DMA Current Descriptor Pointer Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x08"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Current_Descriptor_Pointer">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the pointer of the current descriptor being worked on. This register must contain a pointer to a valid descriptor prior to writing the TAILDESC_PTR register. Otherwise, undefined results occur. When DMACR.RS is 1, CURDESC_PTR becomes Read Only (RO) and is used to fetch the first descriptor.&#xA;When the DMA Engine is running (DMACR.RS=1), CURDESC_PTR registers are updated by AXI DMA to indicate the current descriptor being worked on.&#xA;On error detection, CURDESC_PTR is updated to reflect the descriptor associated with the detected error.&#xA;Note: The register can only be written to by the CPU when the DMA Engine is Halted (DMACR.RS=0 and DMASR.Halted =1). At all other times, this register is Read Only (RO). Descriptors must be 16 word aligned, that is, 0x00, 0x40, 0x80 and others. Any other alignment has undefined results.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="26"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="MM2S_CURDESC_MSB">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S DMA Current Descriptor Pointer Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x0C"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Current_Descriptor_Pointer">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the pointer of the current descriptor being worked on. This register must contain a pointer to a valid descriptor prior to writing the TAILDESC_PTR register. Otherwise, undefined results occur. When DMACR.RS is 1, CURDESC_PTR becomes Read Only (RO) and is used to fetch the first descriptor.&#xA;When the DMA Engine is running (DMACR.RS=1), CURDESC_PTR registers are updated by AXI DMA to indicate the current descriptor being worked on.&#xA;On error detection, CURDESC_PTR is updated to reflect the descriptor associated with the detected error.&#xA;Note: The register can only be written to by the CPU when the DMA Engine is Halted (DMACR.RS=0 and DMASR.Halted =1). At all other times, this register is Read Only (RO). Descriptors must be 16 word aligned, that is, 0x00, 0x40, 0x80 and others. Any other alignment has undefined results.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="MM2S_TAILDESC">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S DMA Tail Descriptor Pointer Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x10"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Tail_Descriptor_Pointer">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the pause pointer in a descriptor chain. The AXI DMA SG Engine pauses descriptor fetching after completing operations on the descriptor whose current descriptor pointer matches the tail descriptor pointer.&#xA;When AXI DMA Channel is not halted (DMASR.Halted = 0), a write by the CPU to the TAILDESC_PTR register causes the AXI DMA SG Engine to start fetching descriptors or restart if it was idle (DMASR.Idle = 1). If it was not idle, writing TAILDESC_PTR has no effect except to reposition the pause point.&#xA;If the AXI DMA Channel is halted (DMASR.Halted = 1 and DMACR.RS = 0), a write by the CPU to the TAILDESC_PTR register has no effect except to reposition the pause point.&#xA;Note: The software must not move the tail pointer to a location that has not been updated. The software processes and reallocates all completed descriptors (Cmplted = 1), clears the completed bits and then moves the tail pointer. The software must move the pointer to the last descriptor it updated. Descriptors must be 16-word aligned, that is, 0x00, 0x40, 0x80, and so forth. Any other alignment has undefined results. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="26"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="MM2S_TAILDESC_MSB">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S DMA Tail Descriptor Pointer Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x14"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Tail_Descriptor_Pointer">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the pause pointer in a descriptor chain. The AXI DMA SG Engine pauses descriptor fetching after completing operations on the descriptor whose current descriptor pointer matches the tail descriptor pointer.&#xA;When AXI DMA Channel is not halted (DMASR.Halted = 0), a write by the CPU to the TAILDESC_PTR register causes the AXI DMA SG Engine to start fetching descriptors or restart if it was idle (DMASR.Idle = 1). If it was not idle, writing TAILDESC_PTR has no effect except to reposition the pause point.&#xA;If the AXI DMA Channel is halted (DMASR.Halted = 1 and DMACR.RS = 0), a write by the CPU to the TAILDESC_PTR register has no effect except to reposition the pause point.&#xA;Note: The software must not move the tail pointer to a location that has not been updated. The software processes and reallocates all completed descriptors (Cmplted = 1), clears the completed bits and then moves the tail pointer. The software must move the pointer to the last descriptor it updated. Descriptors must be 16-word aligned, that is, 0x00, 0x40, 0x80, and so forth. Any other alignment has undefined results. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="MM2S_SA">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S Source Address Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x18"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Source_Address">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the source address AXI DMA reads from to transfer data to AXI4-Stream on the MM2S Channel.&#xA;Note: If Data Realignment Engine is included, the Source Address can be at any byte offset. If Data Realignment Engine is not included, the Source Address must be MM2S Memory Map data width aligned.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="MM2S_SA_MSB">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S Source Address Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x1C"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Source_Address">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the MSB 32 bits of the source address AXI DMA reads from to transfer data to AXI4-Stream on the MM2S Channel.&#xA;Note: If Data Realignment Engine is included, the Source Address can be at any byte offset. If Data Realignment Engine is not included, the Source Address must be MM2S Memory Map data width aligned.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="MM2S_LENGTH">
-              <PROPERTY NAME="DESCRIPTION" VALUE="MM2S DMA Transfer Length Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x28"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Length">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the number of bytes to transfer for the MM2S channel. Writing a non-zero value to this register starts the MM2S transfer.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="26"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="SG_CTL">
-              <PROPERTY NAME="DESCRIPTION" VALUE="Scatter/Gather User and Cache Control Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x2C"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x03"/>
-              <FIELDS>
-                <FIELD NAME="SG_CACHE">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter/Gather Cache Control. Values written in this register reflect on the m_axi_sg_arcache and m_axi_sg_awcache signals of the M_AXI_SG interface.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="4"/>
-                </FIELD>
-                <FIELD NAME="SG_USER">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter/Gather User Control. Values written in this register reflect on the m_axi_sg_aruser and m_axi_sg_awuser signals of the M_AXI_SG interface.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="8"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="8"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="4"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_DMACR">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM DMA Control Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x30"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x10002"/>
-              <FIELDS>
-                <FIELD NAME="RS">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Run / Stop control for controlling running and stopping of the DMA channel.&#xA;  0 - Stop, DMA stops when current (if any) DMA operations are complete. For Scatter / Gather Mode pending commands/transfers are flushed or completed. &#xA;  AXI4-Stream outs are potentially terminated early. Descriptors in the update queue are allowed to finish updating to remote memory before engine halt.&#xA;  For Direct Register mode pending commands/transfers are flushed or completed. AXI4-Stream outs are potentially terminated. Data integrity on S2MM AXI4 cannot be guaranteed.&#xA;  The halted bit in the DMA Status register asserts to 1 when the DMA engine is halted. This bit is cleared by AXI DMA hardware when an error occurs. The CPU can also choose to clear this bit to stop DMA operations.&#xA;  1 - Run, Start DMA operations. The halted bit in the DMA Status register deasserts to 0 when the DMA engine begins operations.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Reset">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Soft reset for resetting the AXI DMA core. Setting this bit to a 1 causes the AXI DMA to be reset. Reset is accomplished gracefully. Pending commands/transfers are flushed or completed.&#xA;AXI4-Stream outs are terminated early, if necessary with associated TLAST. Setting either MM2S_DMACR.Reset = 1 or S2MM_DMACR.Reset = 1 resets the entire AXI DMA engine. After completion of a soft reset, all registers and bits are in the Reset State.      0 - Reset not in progress. Normal operation.      1 - Reset in progress&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="2"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="2"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Keyhole">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Keyhole Write. Setting this bit to 1 causes AXI DMA to initiate S2MM writes (AXI4 Writes) in non-incrementing address mode (Fixed Address Burst transfer on AXI4). This bit can be modified when AXI DMA is in idle. When enabling Key hole operation the maximum burst length cannot be more than 16. This bit should not be set when DRE is enabled.&#xA;This bit is non functional when DMA is used in multichannel mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Cyclic_BD_Enable">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="When set to 1, the DMA operates in Cyclic Buffer Descriptor (BD) mode without any user intervention. In this mode, the Scatter Gather module ignores the Completed bit of the BD. With this bit set, you can use the same BDs in cyclic manner without worrying about any stale descriptor errors.&#xA;This bit is non functional when DMA operates in Multichannel mode. or in Direct Register Mode&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="4"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="IOC_IrqEn">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Complete (IOC) Interrupt Enable. When set to 1, allows Interrupt On Complete events to generate an interrupt out for descriptors with the Complete bit set.      0 - IOC Interrupt disabled      1 - IOC Interrupt enabled&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="12"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="12"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Dly_IrqEn">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Delay Timer Interrupt Enable. When set to 1, allows error events to generate an interrupt out.      0 - Delay Interrupt disabled      1 - Delay Interrupt enabled  Note: Applicable only when Scatter Gather is enabled.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="13"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="13"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Err_IrqEn">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Error Interrupt Enable. When set to 1, allows error events to generate an interrupt out.      0 - Error Interrupt disabled      1 - Error Interrupt enabled&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="14"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="14"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="IRQThreshold">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Threshold. This value is used for setting the interrupt threshold. When IOC interrupt events occur, an internal counter counts down from the Interrupt Threshold setting. When the count reaches zero, an interrupt out is generated by the DMA engine.&#xA;Note: The minimum setting for the threshold is 0x01. A write of 0x00 to this register has no effect.&#xA;Note: Applicable only when Scatter Gather is enabled.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="16"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="16"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
-                </FIELD>
-                <FIELD NAME="IRQDelay">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Delay Time Out. This value is used for setting the interrupt timeout value. The interrupt timeout mechanism causes the DMA engine to generate an interrupt after the delay time period has expired. Timer begins counting at the end of a packet and resets with receipt of a new packet or a timeout event occurs.&#xA;Note: Setting this value to zero disables the delay timer interrupt.&#xA;Note: Applicable only when Scatter Gather is enabled.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="24"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="24"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_DMASR">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM DMA Status Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x34"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x10000"/>
-              <FIELDS>
-                <FIELD NAME="Halted">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Channel Halted. Indicates the run/stop state of the DMA channel.      0 - DMA channel running.      1 - DMA channel halted.  For Scatter/Gather Mode this bit gets set when DMACR.RS = 0 and DMA and SG operations have halted. For Direct Register Mode this bit gets set when DMACR.RS = 0 and DMA operations have halted. There can be a lag of time between when DMACR.RS = 0 and when DMASR.Halted = 1 &#xA;Note: When halted (RS= 0 and Halted = 1), writing to CURDESC_PTR or TAILDESC_PTR pointer registers has no effect on DMA operations when in Scatter Gather Mode. For Direct Register Mode, writing to the LENGTH register has no effect on DMA operations.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Idle">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Channel Idle. Indicates the state of AXI DMA operations.&#xA;For Scatter / Gather Mode when IDLE indicates the SG Engine has reached the tail pointer for the associated channel and all queued descriptors have been processed. Writing to the tail pointer register automatically restarts DMA operations.&#xA;For Direct Register Mode when IDLE indicates the current transfer has completed.      0 - Not Idle.      1 - Idle.   Note: This bit is 0 when channel is halted (DMASR.Halted=1). This bit is also 0 prior to initial transfer when AXI DMA configured for Direct Register Mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="1"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="1"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="SGIncld">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter Gather Engine Included. DMASR.SGIncld = 1 indicates the Scatter Gather engine is included and the AXI DMA is configured for Scatter Gather mode. DMASR.SGIncld = 0 indicates the Scatter Gather engine is excluded and the AXI DMA is configured for Direct Register Mode.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="3"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="3"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="DMAIntErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Internal Error. This error occurs if the buffer length specified in the fetched descriptor is set to 0. Also, when in Scatter Gather Mode and using the status app length field, this error occurs when the Status AXI4-Stream packet RxLength field does not match the S2MM packet being received by the S_AXIS_S2MM interface. When Scatter Gather is disabled, this error is flagged if any error occurs during Memory write or if the incoming packet is bigger than what is specified in the DMA length register.&#xA;This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No DMA Internal Errors      1 - DMA Internal Error detected.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="4"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="4"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="DMASlvErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Slave Error. This error occurs if the slave read from the Memory Map interface issues a Slave Error. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No DMA Slave Errors.      1 - DMA Slave Error detected.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="5"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="5"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="DMADecErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="DMA Decode Error. This error occurs if the address request points to an invalid address. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.     0 - No DMA Decode Errors.   1 - DMA Decode Error detected.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="SGIntErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter Gather Internal Error. This error occurs if a descriptor with the &quot;Complete bit&quot; already set is fetched. This indicates to the SG Engine that the descriptor is a tail descriptor. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No SG Internal Errors.      1 - SG Internal Error detected.  Note: Applicable only when Scatter Gather is enabled. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="8"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="8"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="SGSlvErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter Gather Slave Error. This error occurs if the slave read from on the Memory Map interface issues a Slave error. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No SG Slave Errors.      1 - SG Slave Error detected. DMA Engine halts. Note: Applicable only when Scatter Gather is enabled. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="9"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="9"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="SGDecErr">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Scatter Gather Decode Error. This error occurs if CURDESC_PTR and/or NXTDESC_PTR points to an invalid address. This error condition causes the AXI DMA to halt gracefully. The DMACR.RS bit is set to 0, and when the engine has completely shut down, the DMASR.Halted bit is set to 1.      0 - No SG Decode Errors.      1 - SG Decode Error detected. DMA Engine halts. Note: Applicable only when Scatter Gather is enabled. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="10"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="10"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="IOC_Irq">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Complete. When set to 1 for Scatter/Gather Mode, indicates an interrupt event was generated on completion of a descriptor. This occurs for descriptors with the End of Frame (EOF) bit set. When set to 1 for Direct Register Mode, indicates an interrupt event was generated on completion of a transfer. If the corresponding bit in S2MM_DMACR is enabled (IOC_IrqEn = 1) and if the interrupt threshold has been met, causes an interrupt out to be generated from the AXI DMA.      0 - No IOC Interrupt.      1 - IOC Interrupt detected. Writing a 1 to this bit will clear it.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="12"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToClear"/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="12"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Dly_Irq">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Delay. When set to 1, indicates an interrupt event was generated on delay timer time out. If the corresponding bit is enabled in the S2MM_DMACR (Dly_IrqEn = 1), an interrupt out is generated from the AXI DMA.      0 - No Delay Interrupt.      1 - Delay Interrupt detected.1 = IOC Interrupt detected. Writing a 1 to this bit will clear it. Note: Applicable only when Scatter Gather is enabled. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="13"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToClear"/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="13"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="Err_Irq">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt on Error. When set to 1, indicates an interrupt event was generated on error. If the corresponding bit is enabled in the S2MM_DMACR (Err_IrqEn = 1), an interrupt out is generated from the AXI DMA.&#xA;Writing a 1 to this bit will clear it.      0 - No error Interrupt.      1 - Error interrupt detected.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="14"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE="oneToClear"/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="14"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="1"/>
-                </FIELD>
-                <FIELD NAME="IRQThresholdSts">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Threshold Status. Indicates current interrupt threshold value.&#xA;Note: Applicable only when Scatter Gather is enabled.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="16"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="16"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
-                </FIELD>
-                <FIELD NAME="IRQDelaySts">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Interrupt Delay Time Status. Indicates current interrupt delay time value.&#xA;Note: Applicable only when Scatter Gather is enabled.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="24"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-only"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="24"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_CURDESC">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM DMA Current Descriptor Pointer Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x38"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Current_Descriptor_Pointer">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the pointer of the current descriptor being worked on. This register must contain a pointer to a valid descriptor prior to writing the TAILDESC_PTR register. Otherwise, undefined results occur. When DMACR.RS is 1, CURDESC_PTR becomes Read Only (RO) and is used to fetch the first descriptor.&#xA;When the DMA Engine is running (DMACR.RS=1), CURDESC_PTR registers are updated by AXI DMA to indicate the current descriptor being worked on.&#xA;On error detection, CURDESC_PTR is updated to reflect the descriptor associated with the detected error.&#xA;Note: The register can only be written to by the CPU when the DMA Engine is Halted (DMACR.RS=0 and DMASR.Halted =1). At all other times, this register is Read Only (RO). &#xA;Buffer Descriptors must be 16 word aligned, that is, 0x00, 0x40, 0x80 and so forth. Any other alignment has undefined results.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="26"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_CURDESC_MSB">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM DMA Current Descriptor Pointer Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x3C"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Current_Descriptor_Pointer">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the pointer of the current descriptor being worked on. This register must contain a pointer to a valid descriptor prior to writing the TAILDESC_PTR register. Otherwise, undefined results occur. When DMACR.RS is 1, CURDESC_PTR becomes Read Only (RO) and is used to fetch the first descriptor.&#xA;When the DMA Engine is running (DMACR.RS=1), CURDESC_PTR registers are updated by AXI DMA to indicate the current descriptor being worked on.&#xA;On error detection, CURDESC_PTR is updated to reflect the descriptor associated with the detected error.&#xA;Note: The register can only be written to by the CPU when the DMA Engine is Halted (DMACR.RS=0 and DMASR.Halted =1). At all other times, this register is Read Only (RO). Descriptors must be 16 word aligned, that is, 0x00, 0x40, 0x80 and others. Any other alignment has undefined results.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_TAILDESC">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM DMA Tail Descriptor Pointer Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x40"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Tail_Descriptor_Pointer">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the pause pointer in a descriptor chain. The AXI DMA SG Engine pauses descriptor fetching after completing operations on the descriptor whose current descriptor pointer matches the tail descriptor pointer.&#xA;When AXI DMA Channel is not halted (DMASR.Halted = 0), a write by the CPU to the TAILDESC_PTR register causes the AXI DMA SG Engine to start fetching descriptors or restart if it was idle (DMASR.Idle = 1). If it was not idle, writing TAILDESC_PTR has no effect except to reposition the pause point.&#xA;If the AXI DMA Channel DMACR.RS bit is set to 0 (DMASR.Halted = 1 and DMACR.RS = 0), a write by the CPU to the TAILDESC_PTR register has no effect except to reposition the pause point.&#xA;Note: The software must not move the tail pointer to a location that has not been updated. The software processes and reallocates all completed descriptors (Cmplted = 1), clears the completed bits and then moves the tail pointer. The software must move the pointer to the last descriptor it updated. &#xA;Descriptors must be 16-word aligned, that is, 0x00, 0x40, 0x80, and so forth. Any other alignment has undefined results. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="6"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="26"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_TAILDESC_MSB">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM DMA Tail Descriptor Pointer Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x44"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="false"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Tail_Descriptor_Pointer">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the pause pointer in a descriptor chain. The AXI DMA SG Engine pauses descriptor fetching after completing operations on the descriptor whose current descriptor pointer matches the tail descriptor pointer.&#xA;When AXI DMA Channel is not halted (DMASR.Halted = 0), a write by the CPU to the TAILDESC_PTR register causes the AXI DMA SG Engine to start fetching descriptors or restart if it was idle (DMASR.Idle = 1). If it was not idle, writing TAILDESC_PTR has no effect except to reposition the pause point.&#xA;If the AXI DMA Channel is halted (DMASR.Halted = 1 and DMACR.RS = 0), a write by the CPU to the TAILDESC_PTR register has no effect except to reposition the pause point.&#xA;Note: The software must not move the tail pointer to a location that has not been updated. The software processes and reallocates all completed descriptors (Cmplted = 1), clears the completed bits and then moves the tail pointer. The software must move the pointer to the last descriptor it updated. Descriptors must be 16-word aligned, that is, 0x00, 0x40, 0x80, and so forth. Any other alignment has undefined results. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_DA">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM DMA Destination Address Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x48"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Destination_Address">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the destination address the AXI DMA writes to transfer data from AXI4-Stream on S2MM Channel.&#xA;Note: If Data Realignment Engine is included, the Destination Address can be at any byte offset. If Data Realignment Engine is not included, the Destination Address must be S2MM Memory Map data width aligned.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_DA_MSB">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM Destination Address Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x4C"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Destination_Address">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the MSB 32 bits of the Destination address AXI DMA writes to transfer data from AXI4-Stream on the S2MM Channel.&#xA;Note: If Data Realignment Engine is included, the Destination Address can be at any byte offset. If Data Realignment Engine is not included, the Dstination Address must be S2MM Memory Map data width aligned.&#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="32"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-            <REGISTER NAME="S2MM_LENGTH">
-              <PROPERTY NAME="DESCRIPTION" VALUE="S2MM DMA Transfer Length Register"/>
-              <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x58"/>
-              <PROPERTY NAME="SIZE" VALUE="32"/>
-              <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-              <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
-              <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
-              <FIELDS>
-                <FIELD NAME="Length">
-                  <PROPERTY NAME="DESCRIPTION" VALUE="Indicates the length in bytes of the S2MM buffer available to write receive data from the S2MM channel. Writing a non-zero value to this register enables S2MM channel to receive packet data.&#xA;At the completion of the S2MM transfer, the number of actual bytes written on the S2MM AXI4 interface is updated to the S2MM_LENGTH register.&#xA;Note: This value must be greater than or equal to the largest expected packet to be received on S2MM AXI4-Stream. Values smaller than the received packet result in undefined behavior. &#xA;"/>
-                  <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="ACCESS" VALUE="read-write"/>
-                  <PROPERTY NAME="MODIFIED_READ_VALUES" VALUE=""/>
-                  <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
-                  <PROPERTY NAME="READ_ACTION" VALUE=""/>
-                  <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="26"/>
-                </FIELD>
-              </FIELDS>
-            </REGISTER>
-          </REGISTERS>
-        </ADDRESSBLOCK>
-      </ADDRESSBLOCKS>
-      <PARAMETERS>
-        <PARAMETER NAME="C_DLYTMR_RESOLUTION" VALUE="125"/>
-        <PARAMETER NAME="C_ENABLE_MULTI_CHANNEL" VALUE="0"/>
-        <PARAMETER NAME="C_FAMILY" VALUE="zynq"/>
-        <PARAMETER NAME="C_INCLUDE_MM2S" VALUE="1"/>
-        <PARAMETER NAME="C_INCLUDE_MM2S_DRE" VALUE="0"/>
-        <PARAMETER NAME="C_INCLUDE_MM2S_SF" VALUE="1"/>
-        <PARAMETER NAME="C_INCLUDE_S2MM" VALUE="0"/>
-        <PARAMETER NAME="C_INCLUDE_S2MM_DRE" VALUE="0"/>
-        <PARAMETER NAME="C_INCLUDE_S2MM_SF" VALUE="1"/>
-        <PARAMETER NAME="C_INCLUDE_SG" VALUE="0"/>
-        <PARAMETER NAME="C_INCREASE_THROUGHPUT" VALUE="0"/>
-        <PARAMETER NAME="C_MICRO_DMA" VALUE="0"/>
-        <PARAMETER NAME="C_MM2S_BURST_SIZE" VALUE="16"/>
-        <PARAMETER NAME="C_M_AXIS_MM2S_CNTRL_TDATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_M_AXIS_MM2S_TDATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_M_AXI_MM2S_ADDR_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_M_AXI_MM2S_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_M_AXI_S2MM_ADDR_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_M_AXI_S2MM_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_M_AXI_SG_ADDR_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_M_AXI_SG_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_NUM_MM2S_CHANNELS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_S2MM_CHANNELS" VALUE="1"/>
-        <PARAMETER NAME="C_PRMRY_IS_ACLK_ASYNC" VALUE="0"/>
-        <PARAMETER NAME="C_S2MM_BURST_SIZE" VALUE="16"/>
-        <PARAMETER NAME="C_SG_INCLUDE_STSCNTRL_STRM" VALUE="0"/>
-        <PARAMETER NAME="C_SG_LENGTH_WIDTH" VALUE="26"/>
-        <PARAMETER NAME="C_SG_USE_STSAPP_LENGTH" VALUE="0"/>
-        <PARAMETER NAME="C_S_AXIS_S2MM_STS_TDATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_S_AXIS_S2MM_TDATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_S_AXI_LITE_ADDR_WIDTH" VALUE="10"/>
-        <PARAMETER NAME="C_S_AXI_LITE_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_axi_dma_0_0"/>
-        <PARAMETER NAME="c_addr_width" VALUE="32"/>
-        <PARAMETER NAME="c_dlytmr_resolution" VALUE="125"/>
-        <PARAMETER NAME="c_enable_multi_channel" VALUE="0"/>
-        <PARAMETER NAME="c_include_mm2s" VALUE="1"/>
-        <PARAMETER NAME="c_include_mm2s_dre" VALUE="0"/>
-        <PARAMETER NAME="c_include_mm2s_sf" VALUE="1"/>
-        <PARAMETER NAME="c_include_s2mm" VALUE="0"/>
-        <PARAMETER NAME="c_include_s2mm_dre" VALUE="0"/>
-        <PARAMETER NAME="c_include_s2mm_sf" VALUE="1"/>
-        <PARAMETER NAME="c_include_sg" VALUE="0"/>
-        <PARAMETER NAME="c_increase_throughput" VALUE="0"/>
-        <PARAMETER NAME="c_m_axi_mm2s_data_width" VALUE="32"/>
-        <PARAMETER NAME="c_m_axi_s2mm_data_width" VALUE="32"/>
-        <PARAMETER NAME="c_m_axis_mm2s_tdata_width" VALUE="32"/>
-        <PARAMETER NAME="c_micro_dma" VALUE="0"/>
-        <PARAMETER NAME="c_mm2s_burst_size" VALUE="16"/>
-        <PARAMETER NAME="c_num_mm2s_channels" VALUE="1"/>
-        <PARAMETER NAME="c_num_s2mm_channels" VALUE="1"/>
-        <PARAMETER NAME="c_prmry_is_aclk_async" VALUE="0"/>
-        <PARAMETER NAME="c_s2mm_burst_size" VALUE="16"/>
-        <PARAMETER NAME="c_s_axis_s2mm_tdata_width" VALUE="32"/>
-        <PARAMETER NAME="c_sg_include_stscntrl_strm" VALUE="0"/>
-        <PARAMETER NAME="c_sg_length_width" VALUE="26"/>
-        <PARAMETER NAME="c_sg_use_stsapp_length" VALUE="0"/>
-        <PARAMETER NAME="c_single_interface" VALUE="0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-        <PARAMETER NAME="C_BASEADDR" VALUE="0x41E00000"/>
-        <PARAMETER NAME="C_HIGHADDR" VALUE="0x41E0FFFF"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" NAME="axi_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="m_axi_mm2s_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_araddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_araddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="m_axi_mm2s_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arburst">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arburst"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="3" NAME="m_axi_mm2s_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arcache">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arcache"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="m_axi_mm2s_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arlen">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arlen"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="m_axi_mm2s_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arprot">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arprot"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="m_axi_mm2s_arready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="2" NAME="m_axi_mm2s_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arsize">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arsize"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="m_axi_mm2s_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_arvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="m_axi_mm2s_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="m_axi_mm2s_rlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rlast">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rlast"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="m_axi_mm2s_rready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="m_axi_mm2s_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="m_axi_mm2s_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_AXI_rvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="m_axis_mm2s_tdata" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_Jcoup_TDATA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="Jcoup_TDATA"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="m_axis_mm2s_tready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_Jcoup_TREADY">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="Jcoup_TREADY"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="m_axis_mm2s_tvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_Jcoup_TVALID">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="Jcoup_TVALID"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="mm2s_introut" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
-        <PORT DIR="O" NAME="mm2s_prmry_reset_out_n" POLARITY="ACTIVE_LOW" SIGIS="rst"/>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="9" NAME="s_axi_lite_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_araddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_araddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_lite_arready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_lite_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_arvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="9" NAME="s_axi_lite_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awaddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awaddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_lite_awready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_lite_awvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_lite_bready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_lite_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_lite_bvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_bvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="s_axi_lite_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_lite_rready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="1" NAME="s_axi_lite_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_lite_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_rvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="s_axi_lite_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="s_axi_lite_wready" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="s_axi_lite_wvalid" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_AXI_wvalid"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="ps7_0_axi_periph_M00_AXI" DATAWIDTH="32" NAME="S_AXI_LITE" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="10"/>
+        <BUSINTERFACE BUSNAME="QuantumMonteCarloOpt5_0_m_axi_gmem" DATAWIDTH="32" NAME="m_axi_gmem" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="64"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
@@ -1879,70 +1092,21 @@
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_BURST" VALUE="0"/>
-          <PARAMETER NAME="HAS_CACHE" VALUE="0"/>
-          <PARAMETER NAME="HAS_LOCK" VALUE="0"/>
-          <PARAMETER NAME="HAS_PROT" VALUE="0"/>
-          <PARAMETER NAME="HAS_QOS" VALUE="0"/>
-          <PARAMETER NAME="HAS_REGION" VALUE="0"/>
-          <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
-          <PARAMETER NAME="HAS_WSTRB" VALUE="0"/>
-          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
-          <PARAMETER NAME="PHASE" VALUE="0.0"/>
-          <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
-          <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>
-          <PARAMETER NAME="RUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
-          <PARAMETER NAME="WUSER_BITS_PER_BYTE" VALUE="0"/>
-          <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="ARADDR" PHYSICAL="s_axi_lite_araddr"/>
-            <PORTMAP LOGICAL="ARREADY" PHYSICAL="s_axi_lite_arready"/>
-            <PORTMAP LOGICAL="ARVALID" PHYSICAL="s_axi_lite_arvalid"/>
-            <PORTMAP LOGICAL="AWADDR" PHYSICAL="s_axi_lite_awaddr"/>
-            <PORTMAP LOGICAL="AWREADY" PHYSICAL="s_axi_lite_awready"/>
-            <PORTMAP LOGICAL="AWVALID" PHYSICAL="s_axi_lite_awvalid"/>
-            <PORTMAP LOGICAL="BREADY" PHYSICAL="s_axi_lite_bready"/>
-            <PORTMAP LOGICAL="BRESP" PHYSICAL="s_axi_lite_bresp"/>
-            <PORTMAP LOGICAL="BVALID" PHYSICAL="s_axi_lite_bvalid"/>
-            <PORTMAP LOGICAL="RDATA" PHYSICAL="s_axi_lite_rdata"/>
-            <PORTMAP LOGICAL="RREADY" PHYSICAL="s_axi_lite_rready"/>
-            <PORTMAP LOGICAL="RRESP" PHYSICAL="s_axi_lite_rresp"/>
-            <PORTMAP LOGICAL="RVALID" PHYSICAL="s_axi_lite_rvalid"/>
-            <PORTMAP LOGICAL="WDATA" PHYSICAL="s_axi_lite_wdata"/>
-            <PORTMAP LOGICAL="WREADY" PHYSICAL="s_axi_lite_wready"/>
-            <PORTMAP LOGICAL="WVALID" PHYSICAL="s_axi_lite_wvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXI_MM2S" DATAWIDTH="32" NAME="M_AXI_MM2S" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="HAS_BRESP" VALUE="0"/>
-          <PARAMETER NAME="HAS_BURST" VALUE="0"/>
           <PARAMETER NAME="HAS_CACHE" VALUE="1"/>
-          <PARAMETER NAME="HAS_LOCK" VALUE="0"/>
+          <PARAMETER NAME="HAS_LOCK" VALUE="1"/>
           <PARAMETER NAME="HAS_PROT" VALUE="1"/>
-          <PARAMETER NAME="HAS_QOS" VALUE="0"/>
-          <PARAMETER NAME="HAS_REGION" VALUE="0"/>
+          <PARAMETER NAME="HAS_QOS" VALUE="1"/>
+          <PARAMETER NAME="HAS_REGION" VALUE="1"/>
           <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
-          <PARAMETER NAME="HAS_WSTRB" VALUE="0"/>
-          <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
+          <PARAMETER NAME="ID_WIDTH" VALUE="1"/>
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
-          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="16"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="16"/>
+          <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="256"/>
+          <PARAMETER NAME="MAX_READ_BURST_LENGTH" VALUE="16"/>
+          <PARAMETER NAME="MAX_WRITE_BURST_LENGTH" VALUE="16"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="8"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="8"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="16"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
@@ -1953,48 +1117,50 @@
           <PARAMETER NAME="WUSER_BITS_PER_BYTE" VALUE="0"/>
           <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
           <PORTMAPS>
-            <PORTMAP LOGICAL="ARADDR" PHYSICAL="m_axi_mm2s_araddr"/>
-            <PORTMAP LOGICAL="ARBURST" PHYSICAL="m_axi_mm2s_arburst"/>
-            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="m_axi_mm2s_arcache"/>
-            <PORTMAP LOGICAL="ARLEN" PHYSICAL="m_axi_mm2s_arlen"/>
-            <PORTMAP LOGICAL="ARPROT" PHYSICAL="m_axi_mm2s_arprot"/>
-            <PORTMAP LOGICAL="ARREADY" PHYSICAL="m_axi_mm2s_arready"/>
-            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="m_axi_mm2s_arsize"/>
-            <PORTMAP LOGICAL="ARVALID" PHYSICAL="m_axi_mm2s_arvalid"/>
-            <PORTMAP LOGICAL="RDATA" PHYSICAL="m_axi_mm2s_rdata"/>
-            <PORTMAP LOGICAL="RLAST" PHYSICAL="m_axi_mm2s_rlast"/>
-            <PORTMAP LOGICAL="RREADY" PHYSICAL="m_axi_mm2s_rready"/>
-            <PORTMAP LOGICAL="RRESP" PHYSICAL="m_axi_mm2s_rresp"/>
-            <PORTMAP LOGICAL="RVALID" PHYSICAL="m_axi_mm2s_rvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXIS_MM2S" NAME="M_AXIS_MM2S" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_processing_system7_0_0_FCLK_CLK0"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
-          <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
-          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
-          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
-          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
-          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
-          <PARAMETER NAME="PHASE" VALUE="0.0"/>
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
-          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
-          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
-          <PORTMAPS>
-            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_mm2s_tdata"/>
-            <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_mm2s_tready"/>
-            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_mm2s_tvalid"/>
+            <PORTMAP LOGICAL="ARADDR" PHYSICAL="m_axi_gmem_ARADDR"/>
+            <PORTMAP LOGICAL="ARBURST" PHYSICAL="m_axi_gmem_ARBURST"/>
+            <PORTMAP LOGICAL="ARCACHE" PHYSICAL="m_axi_gmem_ARCACHE"/>
+            <PORTMAP LOGICAL="ARID" PHYSICAL="m_axi_gmem_ARID"/>
+            <PORTMAP LOGICAL="ARLEN" PHYSICAL="m_axi_gmem_ARLEN"/>
+            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="m_axi_gmem_ARLOCK"/>
+            <PORTMAP LOGICAL="ARPROT" PHYSICAL="m_axi_gmem_ARPROT"/>
+            <PORTMAP LOGICAL="ARQOS" PHYSICAL="m_axi_gmem_ARQOS"/>
+            <PORTMAP LOGICAL="ARREADY" PHYSICAL="m_axi_gmem_ARREADY"/>
+            <PORTMAP LOGICAL="ARREGION" PHYSICAL="m_axi_gmem_ARREGION"/>
+            <PORTMAP LOGICAL="ARSIZE" PHYSICAL="m_axi_gmem_ARSIZE"/>
+            <PORTMAP LOGICAL="ARVALID" PHYSICAL="m_axi_gmem_ARVALID"/>
+            <PORTMAP LOGICAL="AWADDR" PHYSICAL="m_axi_gmem_AWADDR"/>
+            <PORTMAP LOGICAL="AWBURST" PHYSICAL="m_axi_gmem_AWBURST"/>
+            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="m_axi_gmem_AWCACHE"/>
+            <PORTMAP LOGICAL="AWLEN" PHYSICAL="m_axi_gmem_AWLEN"/>
+            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="m_axi_gmem_AWLOCK"/>
+            <PORTMAP LOGICAL="AWPROT" PHYSICAL="m_axi_gmem_AWPROT"/>
+            <PORTMAP LOGICAL="AWQOS" PHYSICAL="m_axi_gmem_AWQOS"/>
+            <PORTMAP LOGICAL="AWREADY" PHYSICAL="m_axi_gmem_AWREADY"/>
+            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="m_axi_gmem_AWSIZE"/>
+            <PORTMAP LOGICAL="AWVALID" PHYSICAL="m_axi_gmem_AWVALID"/>
+            <PORTMAP LOGICAL="BREADY" PHYSICAL="m_axi_gmem_BREADY"/>
+            <PORTMAP LOGICAL="BRESP" PHYSICAL="m_axi_gmem_BRESP"/>
+            <PORTMAP LOGICAL="BVALID" PHYSICAL="m_axi_gmem_BVALID"/>
+            <PORTMAP LOGICAL="RDATA" PHYSICAL="m_axi_gmem_RDATA"/>
+            <PORTMAP LOGICAL="RID" PHYSICAL="m_axi_gmem_RID"/>
+            <PORTMAP LOGICAL="RLAST" PHYSICAL="m_axi_gmem_RLAST"/>
+            <PORTMAP LOGICAL="RREADY" PHYSICAL="m_axi_gmem_RREADY"/>
+            <PORTMAP LOGICAL="RRESP" PHYSICAL="m_axi_gmem_RRESP"/>
+            <PORTMAP LOGICAL="RVALID" PHYSICAL="m_axi_gmem_RVALID"/>
+            <PORTMAP LOGICAL="WDATA" PHYSICAL="m_axi_gmem_WDATA"/>
+            <PORTMAP LOGICAL="WLAST" PHYSICAL="m_axi_gmem_WLAST"/>
+            <PORTMAP LOGICAL="WREADY" PHYSICAL="m_axi_gmem_WREADY"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="m_axi_gmem_WSTRB"/>
+            <PORTMAP LOGICAL="WVALID" PHYSICAL="m_axi_gmem_WVALID"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
       <MEMORYMAP>
-        <MEMRANGE ADDRESSBLOCK="HP0_DDR_LOWOCM" BASENAME="C_BASEADDR" BASEVALUE="0x00000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x1FFFFFFF" INSTANCE="processing_system7_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_MM2S" MEMTYPE="MEMORY" SLAVEBUSINTERFACE="S_AXI_HP0"/>
+        <MEMRANGE ADDRESSBLOCK="HP0_DDR_LOWOCM" BASENAME="C_BASEADDR" BASEVALUE="0x00000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x1FFFFFFF" INSTANCE="processing_system7_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="m_axi_gmem" MEMTYPE="MEMORY" SLAVEBUSINTERFACE="S_AXI_HP0"/>
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="processing_system7_0"/>
-        <PERIPHERAL INSTANCE="QuantumMonteCarloOpt5_0"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE COREREVISION="38" FULLNAME="/axi_mem_intercon" HWVERSION="2.1" INSTANCE="axi_mem_intercon" IPTYPE="BUS" IS_ENABLE="1" MODCLASS="BUS" MODTYPE="axi_interconnect" VLNV="xilinx.com:ip:axi_interconnect:2.1">
@@ -2340,7 +1506,7 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="interconnect_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_mem_intercon_M00_AXI_araddr">
+        <PORT DIR="O" LEFT="63" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_mem_intercon_M00_AXI_araddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP0_ARADDR"/>
           </CONNECTIONS>
@@ -2515,88 +1681,226 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="interconnect_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="S00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_araddr">
+        <PORT DIR="I" LEFT="63" NAME="S00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_araddr"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="S00_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arburst">
+        <PORT DIR="I" LEFT="1" NAME="S00_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARBURST">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arburst"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARBURST"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arcache">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARCACHE">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arcache"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARCACHE"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="S00_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arlen">
+        <PORT DIR="I" LEFT="0" NAME="S00_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arlen"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arprot">
+        <PORT DIR="I" LEFT="7" NAME="S00_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARLEN">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arprot"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARLEN"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_arready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arready">
+        <PORT DIR="I" LEFT="1" NAME="S00_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARLOCK">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arready"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARLOCK"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arsize">
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARPROT">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arsize"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARPROT"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_arvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_arvalid">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arqos" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARQOS">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_arvalid"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARQOS"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="S00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rdata">
+        <PORT DIR="O" NAME="S00_AXI_arready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARREADY">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rdata"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_rlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rlast">
+        <PORT DIR="I" LEFT="3" NAME="S00_AXI_arregion" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARREGION">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rlast"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARREGION"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_AXI_rready" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rready">
+        <PORT DIR="I" LEFT="2" NAME="S00_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARSIZE">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rready"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARSIZE"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="S00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rresp">
+        <PORT DIR="I" NAME="S00_AXI_arvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_ARVALID">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rresp"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_ARVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="S00_AXI_rvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axi_mm2s_rvalid">
+        <PORT DIR="I" NAME="S00_AXI_awaddr" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWADDR">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_rvalid"/>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWADDR"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awburst" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWBURST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWBURST"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awcache" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWCACHE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWCACHE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awlen" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWLEN">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWLEN"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awlock" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWLOCK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWLOCK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awprot" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWPROT">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWPROT"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awqos" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWQOS">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWQOS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_awready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awsize" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWSIZE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWSIZE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_awvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_AWVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_AWVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_bready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_BREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_BREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_bresp" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_BRESP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_BRESP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_bvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_BVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_BVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="S00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_RDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="S00_AXI_rid" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_RID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_rlast" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RLAST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_RLAST"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_rready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_RREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="S00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RRESP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_RRESP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_rvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_RVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_RVALID"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_wdata" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WDATA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_WDATA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_wlast" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WLAST">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_WLAST"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="S00_AXI_wready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WREADY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_WREADY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_wstrb" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WSTRB">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_WSTRB"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="S00_AXI_wvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_m_axi_gmem_WVALID">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="m_axi_gmem_WVALID"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXI_MM2S" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="QuantumMonteCarloOpt5_0_m_axi_gmem" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="ARADDR" PHYSICAL="S00_AXI_araddr"/>
             <PORTMAP LOGICAL="ARBURST" PHYSICAL="S00_AXI_arburst"/>
             <PORTMAP LOGICAL="ARCACHE" PHYSICAL="S00_AXI_arcache"/>
+            <PORTMAP LOGICAL="ARID" PHYSICAL="S00_AXI_arid"/>
             <PORTMAP LOGICAL="ARLEN" PHYSICAL="S00_AXI_arlen"/>
+            <PORTMAP LOGICAL="ARLOCK" PHYSICAL="S00_AXI_arlock"/>
             <PORTMAP LOGICAL="ARPROT" PHYSICAL="S00_AXI_arprot"/>
+            <PORTMAP LOGICAL="ARQOS" PHYSICAL="S00_AXI_arqos"/>
             <PORTMAP LOGICAL="ARREADY" PHYSICAL="S00_AXI_arready"/>
+            <PORTMAP LOGICAL="ARREGION" PHYSICAL="S00_AXI_arregion"/>
             <PORTMAP LOGICAL="ARSIZE" PHYSICAL="S00_AXI_arsize"/>
             <PORTMAP LOGICAL="ARVALID" PHYSICAL="S00_AXI_arvalid"/>
+            <PORTMAP LOGICAL="AWADDR" PHYSICAL="S00_AXI_awaddr"/>
+            <PORTMAP LOGICAL="AWBURST" PHYSICAL="S00_AXI_awburst"/>
+            <PORTMAP LOGICAL="AWCACHE" PHYSICAL="S00_AXI_awcache"/>
+            <PORTMAP LOGICAL="AWLEN" PHYSICAL="S00_AXI_awlen"/>
+            <PORTMAP LOGICAL="AWLOCK" PHYSICAL="S00_AXI_awlock"/>
+            <PORTMAP LOGICAL="AWPROT" PHYSICAL="S00_AXI_awprot"/>
+            <PORTMAP LOGICAL="AWQOS" PHYSICAL="S00_AXI_awqos"/>
+            <PORTMAP LOGICAL="AWREADY" PHYSICAL="S00_AXI_awready"/>
+            <PORTMAP LOGICAL="AWSIZE" PHYSICAL="S00_AXI_awsize"/>
+            <PORTMAP LOGICAL="AWVALID" PHYSICAL="S00_AXI_awvalid"/>
+            <PORTMAP LOGICAL="BREADY" PHYSICAL="S00_AXI_bready"/>
+            <PORTMAP LOGICAL="BRESP" PHYSICAL="S00_AXI_bresp"/>
+            <PORTMAP LOGICAL="BVALID" PHYSICAL="S00_AXI_bvalid"/>
             <PORTMAP LOGICAL="RDATA" PHYSICAL="S00_AXI_rdata"/>
+            <PORTMAP LOGICAL="RID" PHYSICAL="S00_AXI_rid"/>
             <PORTMAP LOGICAL="RLAST" PHYSICAL="S00_AXI_rlast"/>
             <PORTMAP LOGICAL="RREADY" PHYSICAL="S00_AXI_rready"/>
             <PORTMAP LOGICAL="RRESP" PHYSICAL="S00_AXI_rresp"/>
             <PORTMAP LOGICAL="RVALID" PHYSICAL="S00_AXI_rvalid"/>
+            <PORTMAP LOGICAL="WDATA" PHYSICAL="S00_AXI_wdata"/>
+            <PORTMAP LOGICAL="WLAST" PHYSICAL="S00_AXI_wlast"/>
+            <PORTMAP LOGICAL="WREADY" PHYSICAL="S00_AXI_wready"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="S00_AXI_wstrb"/>
+            <PORTMAP LOGICAL="WVALID" PHYSICAL="S00_AXI_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="axi_mem_intercon_M00_AXI" DATAWIDTH="64" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
@@ -2671,7 +1975,6 @@
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ARESETN"/>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_ARESETN"/>
             <CONNECTION INSTANCE="axi_mem_intercon" PORT="ARESETN"/>
             <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_mem_intercon" PORT="M00_ARESETN"/>
@@ -2681,7 +1984,6 @@
         <PORT DIR="O" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="ap_rst_n"/>
           </CONNECTIONS>
         </PORT>
@@ -2698,6 +2000,9 @@
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=processing_system7;v=v5_3;d=pg082-processing-system7.pdf"/>
       </DOCUMENTS>
+      <ADDRESSBLOCKS>
+        <ADDRESSBLOCK ACCESS="" INTERFACE="S_AXI_HP0" NAME="HP0_DDR_LOWOCM" RANGE="536870912" USAGE="memory"/>
+      </ADDRESSBLOCKS>
       <PARAMETERS>
         <PARAMETER NAME="C_DM_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_DQS_WIDTH" VALUE="4"/>
@@ -3727,13 +3032,10 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
             <CONNECTION INSTANCE="processing_system7_0" PORT="S_AXI_HP0_ACLK"/>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_aclk"/>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_aclk"/>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="ap_clk"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M00_ACLK"/>
-            <CONNECTION INSTANCE="ps7_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="axi_mem_intercon" PORT="ACLK"/>
             <CONNECTION INSTANCE="axi_mem_intercon" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_mem_intercon" PORT="M00_ACLK"/>
@@ -4336,11 +3638,9 @@
       </BUSINTERFACES>
       <MEMORYMAP>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_S_AXI_CONTROL_BASEADDR" BASEVALUE="0x40000000" HIGHNAME="C_S_AXI_CONTROL_HIGHADDR" HIGHVALUE="0x4000FFFF" INSTANCE="QuantumMonteCarloOpt5_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s_axi_control"/>
-        <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x41E00000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x41E0FFFF" INSTANCE="axi_dma_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_GP0" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI_LITE"/>
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="QuantumMonteCarloOpt5_0"/>
-        <PERIPHERAL INSTANCE="axi_dma_0"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE COREREVISION="38" FULLNAME="/ps7_0_axi_periph" HWVERSION="2.1" INSTANCE="ps7_0_axi_periph" IPTYPE="BUS" IS_ENABLE="1" MODCLASS="BUS" MODTYPE="axi_interconnect" VLNV="xilinx.com:ip:axi_interconnect:2.1">
@@ -4607,7 +3907,7 @@
         <PARAMETER NAME="M63_HAS_REGSLICE" VALUE="0"/>
         <PARAMETER NAME="M63_ISSUANCE" VALUE="0"/>
         <PARAMETER NAME="M63_SECURE" VALUE="0"/>
-        <PARAMETER NAME="NUM_MI" VALUE="2"/>
+        <PARAMETER NAME="NUM_MI" VALUE="1"/>
         <PARAMETER NAME="NUM_SI" VALUE="1"/>
         <PARAMETER NAME="PCHK_MAX_RD_BURSTS" VALUE="2"/>
         <PARAMETER NAME="PCHK_MAX_WR_BURSTS" VALUE="2"/>
@@ -4686,177 +3986,87 @@
             <CONNECTION INSTANCE="proc_sys_reset_0" PORT="interconnect_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_araddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_araddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_arready" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_arready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_arvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_arvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awaddr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awaddr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_awready" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_awvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_awvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_bready" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_bvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_bvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_bvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rresp">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rresp"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_rvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_rvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M00_AXI_wready" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wready">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wready"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M00_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_s_axi_lite_wvalid">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="s_axi_lite_wvalid"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M01_ACLK" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="M01_ARESETN" SIGIS="rst" SIGNAME="proc_sys_reset_0_interconnect_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="interconnect_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M01_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARADDR">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_ARADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_arready" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARREADY">
+        <PORT DIR="I" NAME="M00_AXI_arready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_ARREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_arvalid" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARVALID">
+        <PORT DIR="O" NAME="M00_AXI_arvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_ARVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_ARVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M01_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWADDR">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWADDR">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_AWADDR"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_awready" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWREADY">
+        <PORT DIR="I" NAME="M00_AXI_awready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_AWREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_awvalid" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWVALID">
+        <PORT DIR="O" NAME="M00_AXI_awvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_AWVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_AWVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_bready" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BREADY">
+        <PORT DIR="O" NAME="M00_AXI_bready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_BREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M01_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BRESP">
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_BRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_bvalid" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BVALID">
+        <PORT DIR="I" NAME="M00_AXI_bvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_BVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_BVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="M01_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RDATA">
+        <PORT DIR="I" LEFT="31" NAME="M00_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_RDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_rready" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RREADY">
+        <PORT DIR="O" NAME="M00_AXI_rready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_RREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="1" NAME="M01_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RRESP">
+        <PORT DIR="I" LEFT="1" NAME="M00_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RRESP">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_RRESP"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_rvalid" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RVALID">
+        <PORT DIR="I" NAME="M00_AXI_rvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_RVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_RVALID"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="M01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WDATA">
+        <PORT DIR="O" LEFT="31" NAME="M00_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WDATA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_WDATA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="M01_AXI_wready" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WREADY">
+        <PORT DIR="I" NAME="M00_AXI_wready" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WREADY">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_WREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="M01_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WSTRB">
+        <PORT DIR="O" LEFT="3" NAME="M00_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WSTRB">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_WSTRB"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="0" NAME="M01_AXI_wvalid" RIGHT="0" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WVALID">
+        <PORT DIR="O" NAME="M00_AXI_wvalid" SIGIS="undef" SIGNAME="QuantumMonteCarloOpt5_0_s_axi_control_WVALID">
           <CONNECTIONS>
             <CONNECTION INSTANCE="QuantumMonteCarloOpt5_0" PORT="s_axi_control_WVALID"/>
           </CONNECTIONS>
@@ -5122,28 +4332,8 @@
             <PORTMAP LOGICAL="RVALID" PHYSICAL="M00_AXI_rvalid"/>
             <PORTMAP LOGICAL="WDATA" PHYSICAL="M00_AXI_wdata"/>
             <PORTMAP LOGICAL="WREADY" PHYSICAL="M00_AXI_wready"/>
+            <PORTMAP LOGICAL="WSTRB" PHYSICAL="M00_AXI_wstrb"/>
             <PORTMAP LOGICAL="WVALID" PHYSICAL="M00_AXI_wvalid"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="ps7_0_axi_periph_M01_AXI" DATAWIDTH="32" NAME="M01_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
-          <PORTMAPS>
-            <PORTMAP LOGICAL="ARADDR" PHYSICAL="M01_AXI_araddr"/>
-            <PORTMAP LOGICAL="ARREADY" PHYSICAL="M01_AXI_arready"/>
-            <PORTMAP LOGICAL="ARVALID" PHYSICAL="M01_AXI_arvalid"/>
-            <PORTMAP LOGICAL="AWADDR" PHYSICAL="M01_AXI_awaddr"/>
-            <PORTMAP LOGICAL="AWREADY" PHYSICAL="M01_AXI_awready"/>
-            <PORTMAP LOGICAL="AWVALID" PHYSICAL="M01_AXI_awvalid"/>
-            <PORTMAP LOGICAL="BREADY" PHYSICAL="M01_AXI_bready"/>
-            <PORTMAP LOGICAL="BRESP" PHYSICAL="M01_AXI_bresp"/>
-            <PORTMAP LOGICAL="BVALID" PHYSICAL="M01_AXI_bvalid"/>
-            <PORTMAP LOGICAL="RDATA" PHYSICAL="M01_AXI_rdata"/>
-            <PORTMAP LOGICAL="RREADY" PHYSICAL="M01_AXI_rready"/>
-            <PORTMAP LOGICAL="RRESP" PHYSICAL="M01_AXI_rresp"/>
-            <PORTMAP LOGICAL="RVALID" PHYSICAL="M01_AXI_rvalid"/>
-            <PORTMAP LOGICAL="WDATA" PHYSICAL="M01_AXI_wdata"/>
-            <PORTMAP LOGICAL="WREADY" PHYSICAL="M01_AXI_wready"/>
-            <PORTMAP LOGICAL="WSTRB" PHYSICAL="M01_AXI_wstrb"/>
-            <PORTMAP LOGICAL="WVALID" PHYSICAL="M01_AXI_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
